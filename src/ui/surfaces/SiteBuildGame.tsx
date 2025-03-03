@@ -1,19 +1,19 @@
 import {
   Card,
   CardTitle,
-  SiteConfigurationSurface,
+  SiteBuildGameSurface,
 } from "@netlify/sdk/ui/react/components";
 import { useNetlifySDK } from "@netlify/sdk/ui/react";
 
-export const SiteConfiguration = () => {
+export const SiteBuildGame = () => {
   const sdk = useNetlifySDK();
 
   return (
-    <SiteConfigurationSurface>
+    <SiteBuildGameSurface>
       <Card>
         <CardTitle>Example Section for {sdk.extension.name}</CardTitle>
         <p>This is an example site configuration.</p>
       </Card>
-    </SiteConfigurationSurface>
+    </SiteBuildGameSurface>
   );
 };
