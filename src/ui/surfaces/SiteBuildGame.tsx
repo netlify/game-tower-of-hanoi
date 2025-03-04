@@ -1,16 +1,12 @@
-import { useNetlifySDK } from "@netlify/sdk/ui/react";
+import { SiteBuildGameSurface } from "@netlify/sdk/ui/react/components";
+import { Game } from "../components.tsx/Game";
 
 export const SiteBuildGame = () => {
-  const sdk = useNetlifySDK();
-
-  return <></>;
-
-  // return (
-  //   <SiteBuildGameSurface>
-  //     <Card>
-  //       <CardTitle>Example Section for {sdk.extension.name}</CardTitle>
-  //       <p>This is an example site configuration.</p>
-  //     </Card>
-  //   </SiteBuildGameSurface>
-  // );
+  return (
+    <SiteBuildGameSurface>
+      <div>
+        <Game />
+      </div>
+    </SiteBuildGameSurface>
+  );
 };

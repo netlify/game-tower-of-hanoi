@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://sdk.netlify.com/sdk/config-schema.json
 config:
-  slug: game-tower-of-hanoi
+  slug: cu51z366-tower-of-hanoi
   name: game-tower-of-hanoi
   scopes:
     site: ["read", "write"]
