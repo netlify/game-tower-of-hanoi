@@ -1,7 +1,7 @@
 import { useNetlifySDK } from "@netlify/sdk/ui/react";
 import { Disk, type DiskProps } from "./Disk";
 
-export interface PegProps {
+export interface RodProps {
   challenge: number;
   disks: DiskProps[];
   target?: boolean;
@@ -9,13 +9,13 @@ export interface PegProps {
   onClick?: () => void;
 }
 
-export const Peg = ({
+export const Rod = ({
   challenge,
   disks,
   target,
   clickable,
   onClick,
-}: PegProps) => {
+}: RodProps) => {
   const sdk = useNetlifySDK();
   return (
     <div

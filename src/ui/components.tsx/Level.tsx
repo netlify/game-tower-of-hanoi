@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Peg } from "./Peg";
+import { Rod } from "./Rod";
 import { Button } from "@netlify/sdk/ui/react/components";
 import { useNetlifySDK } from "@netlify/sdk/ui/react";
 
@@ -10,7 +10,7 @@ export interface LevelProps {
 
 export const Level = ({ challenge, onNextLevel }: LevelProps) => {
   const sdk = useNetlifySDK();
-  const [pegs, setPegs] = React.useState(() => {
+  const [rods, setRods] = React.useState(() => {
     // Create an array from challenge down to 1
     const disks = Array.from({ length: challenge }, (_, i) => ({
       width: (challenge > 5 ? 25 : 50) + i * 25,
@@ -29,28 +29,28 @@ export const Level = ({ challenge, onNextLevel }: LevelProps) => {
 
   const handleClick = (index: number) => {
     if (selected === null) {
-      if (pegs[index].length === 0) {
+      if (rods[index].length === 0) {
         return;
       }
-      const newPegs: typeof pegs = JSON.parse(JSON.stringify(pegs));
-      newPegs[index][0].selected = true;
+      const newRods: typeof rods = JSON.parse(JSON.stringify(rods));
+      newRods[index][0].selected = true;
       setSelected(index);
-      setPegs(newPegs);
+      setRods(newRods);
     } else {
       if (index === selected) {
-        const newPegs: typeof pegs = JSON.parse(JSON.stringify(pegs));
-        newPegs[selected][0].selected = false;
+        const newRods: typeof rods = JSON.parse(JSON.stringify(rods));
+        newRods[selected][0].selected = false;
         setSelected(null);
-        setPegs(newPegs);
+        setRods(newRods);
       } else if (
-        pegs[index].length === 0 ||
-        pegs[index][0].width > pegs[selected][0].width
+        rods[index].length === 0 ||
+        rods[index][0].width > rods[selected][0].width
       ) {
-        const newPegs: typeof pegs = JSON.parse(JSON.stringify(pegs));
-        newPegs[selected][0].selected = false;
-        newPegs[index].unshift(newPegs[selected].shift()!);
+        const newRods: typeof rods = JSON.parse(JSON.stringify(rods));
+        newRods[selected][0].selected = false;
+        newRods[index].unshift(newRods[selected].shift()!);
         setSelected(null);
-        setPegs(newPegs);
+        setRods(newRods);
         setMoves((moves) => moves + 1);
       }
     }
@@ -80,8 +80,8 @@ export const Level = ({ challenge, onNextLevel }: LevelProps) => {
           }`,
         }}
       >
-        {pegs.map((disks, index) => (
-          <Peg
+        {rods.map((disks, index) => (
+          <Rod
             key={index}
             challenge={challenge}
             disks={disks}
@@ -90,14 +90,14 @@ export const Level = ({ challenge, onNextLevel }: LevelProps) => {
               selected === null ||
               selected === index ||
               disks.length === 0 ||
-              disks[0].width > pegs[selected][0].width
+              disks[0].width > rods[selected][0].width
             }
             onClick={() => handleClick(index)}
           />
         ))}
       </div>
       <div>
-        {pegs[2].length === challenge && (
+        {rods[2].length === challenge && (
           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
             <span>
               <strong>Congratulations!</strong> You solved the challenge in{" "}
