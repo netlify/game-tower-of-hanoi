@@ -21,7 +21,7 @@ export const Peg = ({
     <div
       style={{
         width: 150,
-        height: challenge * 12 + 10,
+        height: challenge * 10 + 30,
         position: "relative",
         cursor: clickable ? "pointer" : "not-allowed",
       }}
