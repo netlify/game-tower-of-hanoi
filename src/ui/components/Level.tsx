@@ -15,10 +15,10 @@ export const Level = ({ challenge, onNextLevel }: LevelProps) => {
     const disks = Array.from({ length: challenge }, (_, i) => ({
       width: (challenge > 5 ? 25 : 50) + i * 25,
       color: [
-        "var(--colorFacetsRed600)",
+        "var(--colorFacetsRed500)",
         "var(--colorFacetsBlue600)",
-        "var(--colorFacetsGreen500)",
-        "var(--colorFacetsGold400)",
+        "var(--colorFacetsGreen400)",
+        "var(--colorFacetsGold300)",
       ][i % 4],
       selected: false,
     }));
